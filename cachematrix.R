@@ -35,7 +35,7 @@ makeCacheMatrix <- function(x = matrix(), report = FALSE) {
         inv <<- m
     }
     getinverse <- function() {
-        ## get the inverse, using saved value if its been computed
+        ## get the inverse, using saved value if it hss been computed
         if(is.null(inv)) {
             if(report) {
                 message("No cached inverse, computing it now")
@@ -50,8 +50,8 @@ makeCacheMatrix <- function(x = matrix(), report = FALSE) {
 
 }
 
-## return the inverse of a matrix refered to by the list
-## returned by makeCacheMatrix
+## return the inverse of the matrix passed to makeCacheMatrix() or
+## the last matrix passed to the set() function
 
 cacheSolve <- function(x, ...) {
     x$getinverse()

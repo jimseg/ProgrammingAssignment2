@@ -1,5 +1,5 @@
-## load cachematrix.R and exercise it with four tests
-## uses a 3x3 numeric matrix and a complex matrix taken from the help pages
+## load cachematrix.R and exercise it with some tests
+## uses a couple of 3x3 numeric matrices
 
 test_cachesolve <- function() {
     source("cachematrix.R")
@@ -16,10 +16,11 @@ test_cachesolve <- function() {
     invm <- cacheSolve(x)
     ## verify that we got the expected inverse - no errors more than
     ## 1e-14
+    message("Test if inverse has expected values")
     if(sum(abs(as.vector(i - invm)) < 1e-14) == 9) {
-        message("Inverse of m has expected values")
+        print(TRUE)
     } else {
-        message("inverse of m appears to be wrong")
+        print(FALSE)
         message("Got"); print(invm); message("Expected:");print(i)
     }
     message("Getting inverse of m again, should not report recomputing")
